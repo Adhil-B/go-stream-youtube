@@ -1,16 +1,22 @@
-FROM golang
+FROM golang:1.14-alpine as builder
 
 WORKDIR /go-yt
 
 COPY . .
 
-RUN go mod download
 
-RUN go build -o main .
+RUN go build -o /main .
 
-EXPOSE 8080
+FROM alpine
 
-CMD ["sudo", "apt-get","install", "ffmpeg";"sudo", "apt-get", "install", "youtube-dl";"./main"]
+RUN apk add --no-cache youtube-dl ffmpeg
+
+COPY --from=builder /main /main
+
+
+ENTRYPOINT [ "/main" ]
+
+
 
 
 
