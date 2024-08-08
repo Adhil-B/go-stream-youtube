@@ -51,8 +51,22 @@ func downloadVideoExtractAudio(id string, out io.Writer) error {
 
 func main() {
 
+	port := os.Getenv("PORT")
+
+	if port == "" {
+
+		port = "8080"
+
+	}
+
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+
+		fmt.Fprintf(w, "Welcome to Youtube Audio Extractor\n\nUsage: /watch?v=VIDEO_ID\n\n")
+
+	})
+
 	http.HandleFunc("/watch", handler)
 
-	log.Println("Server listening on port 8080...")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Printf("Server listening on port %s", port)
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
