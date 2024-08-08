@@ -7,11 +7,11 @@ Golang audio streaming server from youtube videos only using core packages of go
 ## Run locally
 
 
-Build docker image
+Pull docker image
 
 ```bash
 
-docker build -t golang-youtube-stream .
+docker pull ghcr.io/root27/go-stream-youtube:{version_number}
 
 ```
 
