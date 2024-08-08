@@ -19,7 +19,7 @@ Run docker image
 
 ```bash
 
-docker run -p 8080:8080 golang-youtube-stream
+docker run -d -p 8080:8080 ghcr.io/root27/go-stream-youtube:{version_number}
 
 ```
 
