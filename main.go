@@ -7,7 +7,6 @@ import (
 	"net/http"
 	"os"
 	"os/exec"
-	"ffmpeg-go"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
