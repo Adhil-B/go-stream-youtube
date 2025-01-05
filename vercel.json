@@ -1,5 +1,9 @@
 {
-  "routes": [
-    { "src": "/(.*)", "dest": "/api" }
-  ]
+    "version": 2,
+    "routes": [
+        {
+            "src": "/api/(.*)",
+            "dest": "/api/index.go"
+        }
+    ]
 }
